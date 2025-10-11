@@ -6,14 +6,14 @@ const jwt = require('jsonwebtoken');
 const { accessTokenSecret, refreshTokenSecret } = require('./tokenSecrets');
 
 const app = express();
-const Port = process.env.Port;
+const Port = process.env.PORT;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.Url || 'mongodb+srv://User:User@links.vjupjjr.mongodb.net/?retryWrites=true&w=majority&appName=Links')
+mongoose.connect(process.env.URL || 'mongodb+srv://User:User@links.vjupjjr.mongodb.net/?retryWrites=true&w=majority&appName=Links')
     .then(() => console.log('Database connected'))
     .catch(err => console.error('Database connection error:', err));
 
@@ -291,4 +291,5 @@ app.listen(Port, () => {
         console.log(`Server running on http://localhost:${Port}`);
     else
         console.log(`Server started listening`);
+
 });
