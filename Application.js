@@ -1,4 +1,4 @@
-const API_URL = 'https://web-stack-djk5.onrender.com/api';
+const API_URL = 'https://web-stack-x71t.onrender.com/api';
 let folders = [];
 
 // Check authentication
@@ -388,4 +388,5 @@ function initDragAndDrop() {
 }
 
 // Initialize
+
 loadFolders();
