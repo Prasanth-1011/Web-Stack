@@ -1,4 +1,4 @@
-const API_URL = 'https://web-stack-djk5.onrender.com/api';
+const API_URL = 'https://web-stack-x71t.onrender.com/api';
 
 // Theme Management
 const currentTheme = localStorage.getItem('theme') || 'ice';
@@ -146,4 +146,5 @@ if (registerForm) {
             console.error('Registration error:', error);
         }
     });
+
 }
