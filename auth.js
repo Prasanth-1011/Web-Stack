@@ -136,7 +136,7 @@ if (registerForm) {
                 showMessage('Registration successful! Redirecting to login...', 'success');
 
                 setTimeout(() => {
-                    window.location.href = 'login.html';
+                    window.location.href = 'index.html';
                 }, 2000);
             } else {
                 showMessage(data.message || 'Registration failed', 'error');
@@ -148,4 +148,5 @@ if (registerForm) {
     });
 
 }
+
 
