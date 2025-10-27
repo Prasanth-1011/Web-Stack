@@ -6,7 +6,7 @@ const accessToken = localStorage.getItem('accessToken');
 const username = localStorage.getItem('username');
 
 if (!accessToken) {
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 // Set username
@@ -51,7 +51,7 @@ document.getElementById('logoutButton').addEventListener('click', () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('username');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 });
 
 // API Helper
@@ -72,7 +72,7 @@ async function apiCall(endpoint, method = 'GET', body = null) {
         if (response.status === 401) {
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
             return null;
         }
 

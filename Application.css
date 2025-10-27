@@ -7,12 +7,26 @@
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
 }
 
 body {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) transparent;
 }
 
 /* Ice Theme (Default) - 60-30-10 */
@@ -29,6 +43,7 @@ body {
     --input-bg: #FFFFFF;
     --border-color: #B8E3E9;
     --hover-color: #3A5F64;
+    --shadow: rgba(11, 46, 51, 0.15);
 }
 
 /* Fire Theme - 60-30-10 */
@@ -45,6 +60,7 @@ body[data-theme="fire"] {
     --input-bg: #FFFFFF;
     --border-color: #FFB74D;
     --hover-color: #6B1E1E;
+    --shadow: rgba(26, 10, 10, 0.15);
 }
 
 /* Land Theme - 60-30-10 */
@@ -61,59 +77,68 @@ body[data-theme="land"] {
     --input-bg: #FFFFFF;
     --border-color: #C8E6A0;
     --hover-color: #3D5C40;
+    --shadow: rgba(27, 58, 31, 0.15);
 }
 
 html,
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     flex-direction: column;
     background: var(--background);
     transition: background 300ms ease;
 }
 
+/* ==================== HEADER SECTION ==================== */
+
 .header {
     width: 100%;
-    height: 30%;
     background-color: var(--primary-color);
-    padding: 20px 30px;
+    padding: clamp(15px, 3vw, 30px);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: clamp(12px, 2vw, 20px);
     position: relative;
-    transition: background-color 300ms ease;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: all 300ms ease;
+    flex-shrink: 0;
 }
 
 .headerTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .webStack {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--text-light);
     transition: color 300ms ease;
+    letter-spacing: 1px;
 }
 
 .userSection {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
 }
 
 .userName {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     color: var(--text-light);
     transition: color 300ms ease;
 }
 
 .logoutButton {
-    padding: 10px 20px;
+    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2.5vw, 20px);
     background: var(--secondary-color);
     color: var(--text-light);
     border: none;
@@ -121,57 +146,80 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
+    gap: 6px;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     transition: all 300ms ease;
+    white-space: nowrap;
 }
 
 .logoutButton:hover {
     background: var(--hover-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
 }
+
+.logoutButton .material-icons {
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+/* ==================== CONTROL PANEL ==================== */
 
 .controlPanel {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
     flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .createSection,
 .actionSection {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: clamp(8px, 1.5vw, 12px);
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.createSection {
+    flex: 1;
+    min-width: 280px;
+}
+
+.actionSection {
+    flex-shrink: 0;
 }
 
 .inputWrapper {
     position: relative;
     display: flex;
     align-items: center;
+    flex: 1;
+    min-width: 200px;
 }
 
 .inputIcon {
     position: absolute;
     left: 12px;
     color: var(--text-secondary);
-    font-size: 20px;
+    font-size: clamp(18px, 2.5vw, 22px);
+    pointer-events: none;
 }
 
 .controlPanel input[type="text"] {
-    padding: 12px 12px 12px 45px;
+    width: 100%;
+    padding: clamp(10px, 1.8vw, 14px) clamp(10px, 1.8vw, 14px) clamp(10px, 1.8vw, 14px) clamp(40px, 5vw, 48px);
     border: 2px solid var(--border-color);
     border-radius: 10px;
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     background: var(--input-bg);
     color: var(--text-primary);
-    min-width: 300px;
     transition: all 300ms ease;
 }
 
 .controlPanel input[type="text"]:focus {
     outline: none;
     border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(184, 227, 233, 0.2);
 }
 
 .controlPanel input[type="text"]::placeholder {
@@ -182,7 +230,7 @@ body {
 .createButton,
 .exportButton,
 .importButton {
-    padding: 12px 20px;
+    padding: clamp(10px, 1.8vw, 14px) clamp(15px, 2.5vw, 22px);
     background: var(--secondary-color);
     color: var(--text-light);
     border: none;
@@ -190,9 +238,10 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
+    gap: 6px;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     transition: all 300ms ease;
+    white-space: nowrap;
 }
 
 .createButton:hover,
@@ -200,19 +249,27 @@ body {
 .importButton:hover {
     background: var(--hover-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
+.createButton .material-icons,
+.exportButton .material-icons,
+.importButton .material-icons {
+    font-size: clamp(18px, 2vw, 22px);
+}
+
+/* ==================== THEME SELECTOR ==================== */
+
 .themeSelector {
-    position: absolute;
-    /* top: 20px;
-    right: 30px; */
     display: flex;
     gap: 10px;
+    justify-content: center;
+    margin-top: 5px;
 }
 
 .themeButton {
-    width: 40px;
-    height: 40px;
+    width: clamp(35px, 5vw, 45px);
+    height: clamp(35px, 5vw, 45px);
     border-radius: 50%;
     border: 2px solid var(--border-color);
     background: var(--secondary-color);
@@ -226,85 +283,116 @@ body {
 
 .themeButton:hover {
     background: var(--hover-color);
-    transform: scale(1.1);
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .themeButton.active {
     background: var(--accent-color);
     color: var(--primary-color);
     border-color: var(--accent-color);
+    transform: scale(1.1);
 }
+
+.themeButton .material-icons {
+    font-size: clamp(18px, 2.5vw, 24px);
+}
+
+/* ==================== MESSAGE SECTION ==================== */
 
 .message {
     width: 100%;
-    height: 5%;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
     color: var(--text-primary);
     background: var(--background);
     transition: all 300ms ease;
+    text-align: center;
+    min-height: 48px;
+    flex-shrink: 0;
 }
 
 .message.show {
     opacity: 1;
+    background: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .message.hide {
     opacity: 0;
 }
 
+/* ==================== FOLDER CONTAINER ==================== */
+
 .folderContainer {
+    flex: 1;
     width: 100%;
-    height: 65%;
-    padding: 30px 20px;
-    padding-bottom: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+    padding: clamp(20px, 3vw, 40px);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: clamp(20px, 3vw, 40px);
     overflow-y: auto;
-    align-content: flex-start;
-    justify-content: space-evenly;
+    overflow-x: hidden;
+    align-content: start;
 }
 
+/* ==================== FOLDER CARDS ==================== */
+
 .folder {
-    width: 300px;
-    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    height: clamp(380px, 50vh, 450px);
+    margin: 0 auto;
     position: relative;
-    border-radius: 25px;
+    border-radius: 20px;
     background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     transition: all 300ms ease;
+    box-shadow: 0 4px 20px var(--shadow);
+    overflow: hidden;
 }
 
 .folder:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px var(--shadow);
 }
 
 .folder.dragging {
-    opacity: 0.5;
+    opacity: 0.6;
+    transform: rotate(5deg);
 }
 
 .folderName {
     width: 100%;
-    height: 60px;
+    height: clamp(50px, 8vh, 65px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 clamp(15px, 2.5vw, 25px);
     color: var(--text-light);
-    border-radius: 25px 25px 0 0;
+    border-radius: 20px 20px 0 0;
     background-color: var(--card-header);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
     transition: all 300ms ease;
+    flex-shrink: 0;
+}
+
+.folderName span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
 }
 
 .folderActions {
     display: flex;
     gap: 5px;
+    flex-shrink: 0;
 }
 
 .deleteFolder {
@@ -312,8 +400,8 @@ body {
     border: none;
     color: var(--text-light);
     cursor: pointer;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 6px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -321,46 +409,58 @@ body {
 }
 
 .deleteFolder:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.deleteFolder .material-icons {
+    font-size: clamp(20px, 2.5vw, 24px);
 }
 
 .links {
-    height: 10px;
+    height: 8px;
+    flex-shrink: 0;
 }
 
 .list {
     flex: 1;
-    padding: 15px;
+    padding: clamp(12px, 2vw, 18px);
     overflow-y: auto;
+    overflow-x: hidden;
     list-style-position: inside;
+    min-height: 0;
 }
 
 .anchors {
-    padding: 8px 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    transition: background 0.2s ease;
+    padding: clamp(6px, 1.2vw, 10px) 8px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    transition: all 200ms ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
 }
 
 .anchors:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .anchors a {
     color: var(--text-light);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 200ms ease;
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    min-width: 0;
 }
 
 .anchors a:hover {
     color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .deleteLink {
@@ -368,12 +468,13 @@ body {
     border: none;
     color: var(--text-light);
     cursor: pointer;
-    padding: 2px;
+    padding: 4px;
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
     display: flex;
     align-items: center;
-    font-size: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .anchors:hover .deleteLink {
@@ -382,14 +483,20 @@ body {
 
 .deleteLink:hover {
     color: #ff4444;
+    background: rgba(255, 68, 68, 0.2);
+}
+
+.deleteLink .material-icons {
+    font-size: clamp(18px, 2vw, 20px);
 }
 
 .task {
     width: 100%;
-    padding: 10px;
-    gap: 10px;
+    padding: clamp(10px, 2vw, 15px);
+    gap: clamp(8px, 1.5vw, 12px);
     display: none;
     flex-direction: column;
+    flex-shrink: 0;
 }
 
 .task.show {
@@ -398,19 +505,20 @@ body {
 
 .task input {
     width: 100%;
-    height: 45px;
-    padding: 0 12px;
+    height: clamp(40px, 6vh, 48px);
+    padding: 0 clamp(10px, 1.8vw, 14px);
     border-radius: 10px;
     border: 2px solid var(--border-color);
     background: var(--input-bg);
     color: var(--text-primary);
-    font-size: 0.8rem;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
     transition: all 300ms ease;
 }
 
 .task input:focus {
     outline: none;
     border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(184, 227, 233, 0.2);
 }
 
 .task input::placeholder {
@@ -419,15 +527,16 @@ body {
 }
 
 .folderBottom {
-    gap: 10px;
+    gap: clamp(8px, 1.5vw, 12px);
     width: 100%;
-    height: 60px;
+    height: clamp(50px, 8vh, 65px);
     color: var(--text-light);
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 20px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: clamp(8px, 1.5vw, 12px);
+    flex-shrink: 0;
 }
 
 .addTask,
@@ -439,17 +548,21 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
     transition: all 300ms ease;
 }
 
 .addTask {
     width: 100%;
     background: transparent;
+}
+
+.addTask:hover {
+    background: rgba(11, 46, 51, 0.3);
 }
 
 .saveTask,
@@ -467,21 +580,44 @@ body {
 .cancel:hover {
     background: var(--hover-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.addTask .material-icons,
+.saveTask .material-icons,
+.cancel .material-icons {
+    font-size: clamp(18px, 2vw, 22px);
 }
 
 .themes {
-    display: none;
+    display: flex !important;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
-    .header {
-        height: auto;
-        min-height: 30%;
+/* ==================== DESKTOP (Large Screens) ==================== */
+@media (min-width: 1441px) {
+    .folderContainer {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        max-width: 1800px;
+        margin: 0 auto;
     }
 
-    .webStack {
-        font-size: 2rem;
+    .folder {
+        max-width: 450px;
+    }
+}
+
+/* ==================== LAPTOP (Standard Desktop) ==================== */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .folderContainer {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        padding: 30px;
+    }
+}
+
+/* ==================== TABLET (Landscape & Portrait) ==================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 20px;
     }
 
     .controlPanel {
@@ -492,47 +628,42 @@ body {
     .createSection,
     .actionSection {
         width: 100%;
-        justify-content: space-between;
+        min-width: unset;
     }
 
-    #newCollectionInput {
-        width: 275px;
+    .createSection {
+        flex-direction: row;
     }
 
-    .controlPanel input[type="text"] {
-        min-width: 100%;
-        flex: 1;
-    }
-
-    .themeSelector {
-        position: relative;
-        /* top: auto;
-        right: auto; */
-        margin-top: 10px;
-        justify-content: center;
+    .actionSection {
+        justify-content: flex-start;
     }
 
     .folderContainer {
-        justify-content: center;
-        height: auto;
-        min-height: 65%;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        padding: 25px 20px;
+        gap: 25px;
+    }
+
+    .folder {
+        height: 420px;
+    }
+
+    .themeSelector {
+        margin-top: 10px;
     }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
+/* ==================== MOBILE (Large Phones) ==================== */
+@media (min-width: 481px) and (max-width: 767px) {
     .header {
-        padding: 15px;
+        padding: 18px;
     }
 
     .headerTop {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
-    }
-
-    .webStack {
-        font-size: 1.8rem;
+        gap: 12px;
     }
 
     .userSection {
@@ -540,38 +671,209 @@ body {
         justify-content: space-between;
     }
 
-    .userName {
-        font-size: 1rem;
+    .controlPanel {
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .logoutButton {
-        padding: 8px 15px;
-        font-size: 0.85rem;
+    .createSection {
+        width: 100%;
+        flex-direction: column;
     }
 
-    .controlPanel input[type="text"] {
-        font-size: 0.85rem;
-        padding: 10px 10px 10px 40px;
+    .inputWrapper {
+        width: 100%;
+    }
+
+    .actionSection {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .createButton,
     .exportButton,
     .importButton {
-        padding: 10px 15px;
-        font-size: 0.85rem;
+        flex: 1;
+    }
+
+    .folderContainer {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
     }
 
     .folder {
-        width: 100%;
-        height: 380px;
+        max-width: 100%;
+        height: 400px;
     }
 
-    .folderName {
-        font-size: 1rem;
-        height: 50px;
+    .themeSelector {
+        margin-top: 12px;
+    }
+}
+
+/* ==================== MOBILE (Small Phones) ==================== */
+@media (max-width: 480px) {
+    body {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .headerTop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .webStack {
+        width: 100%;
+    }
+
+    .userSection {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .logoutButton span:not(.material-icons) {
+        display: none;
+    }
+
+    .controlPanel {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .createSection {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .inputWrapper {
+        width: 100%;
+    }
+
+    .createButton {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .actionSection {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .exportButton,
+    .importButton {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .exportButton span:not(.material-icons),
+    .importButton span:not(.material-icons) {
+        display: none;
+    }
+
+    .folderContainer {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+        height: auto;
+        min-height: calc(100vh - 350px);
+    }
+
+    .folder {
+        max-width: 100%;
+        height: auto;
+        min-height: 380px;
+    }
+
+    .list {
+        min-height: 200px;
+    }
+
+    .themeSelector {
+        margin-top: 10px;
+        gap: 8px;
+    }
+
+    .deleteLink {
+        opacity: 1;
+    }
+}
+
+/* ==================== LANDSCAPE MODE (Mobile/Tablet) ==================== */
+@media (max-height: 600px) and (orientation: landscape) {
+    .header {
+        padding: 12px 20px;
+    }
+
+    .folderContainer {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .folder {
+        height: 350px;
     }
 
     .message {
-        font-size: 0.8rem;
+        min-height: 35px;
+        padding: 8px 15px;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+
+    .header,
+    .message,
+    .themeSelector,
+    .deleteFolder,
+    .deleteLink,
+    .folderBottom {
+        display: none !important;
+    }
+
+    .folderContainer {
+        display: block;
+        padding: 0;
+    }
+
+    .folder {
+        break-inside: avoid;
+        margin-bottom: 20px;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* ==================== HIGH CONTRAST MODE ==================== */
+@media (prefers-contrast: high) {
+    .folder {
+        border: 2px solid var(--primary-color);
+    }
+
+    .controlPanel input[type="text"],
+    .task input {
+        border-width: 3px;
+    }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

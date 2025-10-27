@@ -4,74 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Stack</title>
+    <title>Login - Web Stack</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <link rel="stylesheet" href="Application.css">
+    <link rel="stylesheet" href="auth.css">
 </head>
 
 <body>
-    <div class="header">
-        <div class="headerTop">
-            <h1 class="webStack">Web Stack</h1>
-            <div class="userSection">
-                <span class="userName" id="userName">Username</span>
-                <button class="logoutButton" id="logoutButton">
-                    <span class="material-icons">logout</span>
-                    Logout
+    <div class="authContainer">
+        <div class="authCard">
+            <div class="authHeader">
+                <h1 class="authTitle">Web Stack</h1>
+                <p class="authSubtitle">Login to your account</p>
+            </div>
+
+            <div class="themeSelector">
+                <button class="themeButton" data-theme="ice" title="Ice Theme">
+                    <span class="material-icons">ac_unit</span>
+                </button>
+                <button class="themeButton" data-theme="fire" title="Fire Theme">
+                    <span class="material-icons">local_fire_department</span>
+                </button>
+                <button class="themeButton" data-theme="land" title="Land Theme">
+                    <span class="material-icons">terrain</span>
                 </button>
             </div>
-        </div>
 
-        <div class="controlPanel">
-            <div class="createSection">
-                <div class="inputWrapper">
-                    <span class="material-icons inputIcon">create_new_folder</span>
-                    <input type="text" id="newCollectionInput" placeholder="Create New Link Collection">
+            <form class="authForm" id="loginForm">
+                <div class="messageBox" id="messageBox"></div>
+
+                <div class="inputGroup">
+                    <label class="inputLabel">Email</label>
+                    <div class="inputWrapper">
+                        <span class="material-icons inputIcon">mail</span>
+                        <input type="email" class="inputField" id="email" placeholder="Enter your email" required>
+                    </div>
                 </div>
-                <button class="createButton" id="createButton">
-                    <span class="material-icons">add</span>
-                    Create
-                </button>
-            </div>
 
-            <div class="actionSection">
-                <button class="exportButton" id="exportButton">
-                    <span class="material-icons">save</span>
-                    Export
-                </button>
-                <button class="importButton" id="importButton">
-                    <span class="material-icons">upload</span>
-                    Import
-                </button>
-                <input type="file" id="importFile" accept=".json" style="display: none;">
-            </div>
-        </div>
+                <div class="inputGroup">
+                    <label class="inputLabel">Password</label>
+                    <div class="inputWrapper">
+                        <span class="material-icons inputIcon">lock</span>
+                        <input type="password" class="inputField" id="password" placeholder="Enter your password"
+                            required>
+                        <span class="material-icons inputIconRight togglePassword"
+                            onclick="togglePassword()">visibility_off</span>
+                    </div>
+                </div>
 
-        <div class="themeSelector themes">
-            <button class="themeButton" data-theme="ice" title="Ice Theme">
-                <span class="material-icons">ac_unit</span>
-            </button>
-            <button class="themeButton" data-theme="fire" title="Fire Theme">
-                <span class="material-icons">local_fire_department</span>
-            </button>
-            <button class="themeButton" data-theme="land" title="Land Theme">
-                <span class="material-icons">terrain</span>
-            </button>
+                <button type="submit" class="authButton">
+                    <span class="material-icons buttonIcon">login</span>
+                    Login
+                </button>
+            </form>
+
+            <div class="authFooter">
+                <p class="authLink">Don't have an account? <a href="register.html">Register here</a></p>
+            </div>
         </div>
     </div>
 
-    <div class="message" id="message">
-
-    </div>
-
-    <div class="folderContainer" id="folderContainer">
-        <!-- Folders will be dynamically loaded here -->
-    </div>
-
-    <script src="Application.js"></script>
+    <script src="auth.js"></script>
 </body>
 
 </html>

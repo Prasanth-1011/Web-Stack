@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Web Stack - Organize your bookmarks efficiently with custom folders and themes">
+    <meta name="theme-color" content="#0B2E33">
+
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Web Stack</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="Application.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="headerTop">
+            <h1 class="webStack">Web Stack</h1>
+            <div class="userSection">
+                <span class="userName" id="userName">Username</span>
+                <button class="logoutButton" id="logoutButton" aria-label="Logout">
+                    <span class="material-icons" aria-hidden="true">logout</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="controlPanel">
+            <div class="createSection">
+                <div class="inputWrapper">
+                    <span class="material-icons inputIcon" aria-hidden="true">create_new_folder</span>
+                    <input type="text" id="newCollectionInput" placeholder="Create New Link Folder"
+                        aria-label="New folder name" maxlength="50">
+                </div>
+                <button class="createButton" id="createButton" aria-label="Create new folder">
+                    <span class="material-icons" aria-hidden="true">add</span>
+                    <span>Create</span>
+                </button>
+            </div>
+
+            <div class="actionSection">
+                <button class="exportButton" id="exportButton" aria-label="Export data">
+                    <span class="material-icons" aria-hidden="true">save</span>
+                    <span>Export</span>
+                </button>
+                <button class="importButton" id="importButton" aria-label="Import data">
+                    <span class="material-icons" aria-hidden="true">upload</span>
+                    <span>Import</span>
+                </button>
+                <input type="file" id="importFile" accept=".json" style="display: none;"
+                    aria-label="Choose file to import">
+            </div>
+        </nav>
+
+        <div class="themeSelector themes" role="group" aria-label="Theme selector">
+            <button class="themeButton" data-theme="ice" title="Ice Theme" aria-label="Switch to Ice theme">
+                <span class="material-icons" aria-hidden="true">ac_unit</span>
+            </button>
+            <button class="themeButton" data-theme="fire" title="Fire Theme" aria-label="Switch to Fire theme">
+                <span class="material-icons" aria-hidden="true">local_fire_department</span>
+            </button>
+            <button class="themeButton" data-theme="land" title="Land Theme" aria-label="Switch to Land theme">
+                <span class="material-icons" aria-hidden="true">terrain</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="message hide" id="message" role="status" aria-live="polite">
+
+    </div>
+
+    <main class="folderContainer" id="folderContainer" role="main">
+
+    </main>
+
+    <script src="Application.js"></script>
+</body>
+
+</html>
