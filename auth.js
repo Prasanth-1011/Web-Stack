@@ -78,7 +78,7 @@ if (loginForm) {
                 showMessage('Login successful! Redirecting...', 'success');
 
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = 'stack.html';
                 }, 1500);
             } else {
                 showMessage(data.message || 'Login failed', 'error');
@@ -148,3 +148,4 @@ if (registerForm) {
     });
 
 }
+
