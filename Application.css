@@ -740,7 +740,7 @@ body {
     }
 
     .logoutButton span:not(.material-icons) {
-        display: none;
+        /* display: none; */
     }
 
     .controlPanel {
@@ -771,7 +771,7 @@ body {
     .exportButton,
     .importButton {
         flex: 1;
-        min-width: 0;
+        /* min-width: 0; */
     }
 
     .exportButton span:not(.material-icons),
@@ -876,4 +876,5 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+
 }
