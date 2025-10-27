@@ -3,10 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Login to Web Stack - Your personal link organizer">
+    <meta name="theme-color" content="#0B2E33">
+
+    <!-- iOS Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <title>Login - Web Stack</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="auth.css">
 </head>
@@ -19,43 +32,46 @@
                 <p class="authSubtitle">Login to your account</p>
             </div>
 
-            <div class="themeSelector">
-                <button class="themeButton" data-theme="ice" title="Ice Theme">
-                    <span class="material-icons">ac_unit</span>
+            <div class="themeSelector" role="group" aria-label="Theme selector">
+                <button class="themeButton" data-theme="ice" title="Ice Theme" aria-label="Switch to Ice theme">
+                    <span class="material-icons" aria-hidden="true">ac_unit</span>
                 </button>
-                <button class="themeButton" data-theme="fire" title="Fire Theme">
-                    <span class="material-icons">local_fire_department</span>
+                <button class="themeButton" data-theme="fire" title="Fire Theme" aria-label="Switch to Fire theme">
+                    <span class="material-icons" aria-hidden="true">local_fire_department</span>
                 </button>
-                <button class="themeButton" data-theme="land" title="Land Theme">
-                    <span class="material-icons">terrain</span>
+                <button class="themeButton" data-theme="land" title="Land Theme" aria-label="Switch to Land theme">
+                    <span class="material-icons" aria-hidden="true">terrain</span>
                 </button>
             </div>
 
             <form class="authForm" id="loginForm">
-                <div class="messageBox" id="messageBox"></div>
+                <div class="messageBox" id="messageBox" role="alert" aria-live="polite"></div>
 
                 <div class="inputGroup">
-                    <label class="inputLabel">Email</label>
+                    <label class="inputLabel" for="email">Email</label>
                     <div class="inputWrapper">
-                        <span class="material-icons inputIcon">mail</span>
-                        <input type="email" class="inputField" id="email" placeholder="Enter your email" required>
+                        <span class="material-icons inputIcon" aria-hidden="true">mail</span>
+                        <input type="email" class="inputField" id="email" placeholder="Enter your email" required
+                            autocomplete="email" aria-label="Email address">
                     </div>
                 </div>
 
                 <div class="inputGroup">
-                    <label class="inputLabel">Password</label>
+                    <label class="inputLabel" for="password">Password</label>
                     <div class="inputWrapper">
-                        <span class="material-icons inputIcon">lock</span>
+                        <span class="material-icons inputIcon" aria-hidden="true">lock</span>
                         <input type="password" class="inputField" id="password" placeholder="Enter your password"
-                            required>
-                        <span class="material-icons inputIconRight togglePassword"
-                            onclick="togglePassword()">visibility_off</span>
+                            required autocomplete="current-password" aria-label="Password">
+                        <button type="button" class="material-icons inputIconRight togglePassword"
+                            onclick="togglePassword()" aria-label="Toggle password visibility">
+                            visibility_off
+                        </button>
                     </div>
                 </div>
 
                 <button type="submit" class="authButton">
-                    <span class="material-icons buttonIcon">login</span>
-                    Login
+                    <span class="material-icons buttonIcon" aria-hidden="true">login</span>
+                    <span>Login</span>
                 </button>
             </form>
 

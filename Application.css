@@ -739,10 +739,6 @@ body {
         justify-content: space-between;
     }
 
-    .logoutButton span:not(.material-icons) {
-        /* display: none; */
-    }
-
     .controlPanel {
         flex-direction: column;
         gap: 10px;
@@ -766,17 +762,15 @@ body {
     .actionSection {
         width: 100%;
         flex-wrap: nowrap;
+        gap: 8px;
     }
 
     .exportButton,
     .importButton {
         flex: 1;
-        /* min-width: 0; */
-    }
-
-    .exportButton span:not(.material-icons),
-    .importButton span:not(.material-icons) {
-        display: none;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 0.75rem;
     }
 
     .folderContainer {
@@ -876,5 +870,4 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
 }
