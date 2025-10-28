@@ -842,7 +842,7 @@ body {
         flex: 1;
         grid-template-columns: 1fr;
         padding: 15px 12px;
-        gap: 20px;
+        gap: 40px;
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -852,7 +852,7 @@ body {
     }
 
     .folder {
-        max-width: 80%;
+        width: 80%;
         min-height: 450px;
     }
 
@@ -1009,3 +1009,4 @@ body {
     }
 
 }
+
