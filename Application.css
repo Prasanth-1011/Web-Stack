@@ -852,7 +852,7 @@ body {
     }
 
     .folder {
-        max-width: 100%;
+        max-width: 80%;
         min-height: 450px;
     }
 
@@ -1007,4 +1007,5 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+
 }
