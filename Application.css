@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Source Code Pro', monospace;
-    font-weight: 700;
+    font-weight: 600;
+
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -29,7 +32,6 @@ body {
     scrollbar-color: var(--secondary-color) transparent;
 }
 
-/* Ice Theme (Default) - 60-30-10 */
 :root {
     --primary-color: #0B2E33;
     --secondary-color: #4F7C82;
@@ -38,15 +40,14 @@ body {
     --text-secondary: #4F7C82;
     --text-light: #B8E3E9;
     --background: #E8F4F8;
-    --card-bg: #4F7C82;
+    --card-bg: #FFFFFF;
     --card-header: #0B2E33;
-    --input-bg: #FFFFFF;
+    --input-bg: #F5FAFB;
     --border-color: #B8E3E9;
     --hover-color: #3A5F64;
     --shadow: rgba(11, 46, 51, 0.15);
 }
 
-/* Fire Theme - 60-30-10 */
 body[data-theme="fire"] {
     --primary-color: #1A0A0A;
     --secondary-color: #8B2E2E;
@@ -55,15 +56,14 @@ body[data-theme="fire"] {
     --text-secondary: #8B2E2E;
     --text-light: #FFB74D;
     --background: #FFF3E0;
-    --card-bg: #8B2E2E;
+    --card-bg: #FFFFFF;
     --card-header: #1A0A0A;
-    --input-bg: #FFFFFF;
+    --input-bg: #FFF8F0;
     --border-color: #FFB74D;
     --hover-color: #6B1E1E;
     --shadow: rgba(26, 10, 10, 0.15);
 }
 
-/* Land Theme - 60-30-10 */
 body[data-theme="land"] {
     --primary-color: #1B3A1F;
     --secondary-color: #5D8C61;
@@ -72,9 +72,9 @@ body[data-theme="land"] {
     --text-secondary: #5D8C61;
     --text-light: #C8E6A0;
     --background: #F1F8E9;
-    --card-bg: #5D8C61;
+    --card-bg: #FFFFFF;
     --card-header: #1B3A1F;
-    --input-bg: #FFFFFF;
+    --input-bg: #F9FDF5;
     --border-color: #C8E6A0;
     --hover-color: #3D5C40;
     --shadow: rgba(27, 58, 31, 0.15);
@@ -93,8 +93,6 @@ body {
     background: var(--background);
     transition: background 300ms ease;
 }
-
-/* ==================== HEADER SECTION ==================== */
 
 .header {
     width: 100%;
@@ -118,7 +116,7 @@ body {
 }
 
 .webStack {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
     color: var(--text-light);
     transition: color 300ms ease;
     letter-spacing: 1px;
@@ -132,22 +130,22 @@ body {
 }
 
 .userName {
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    font-size: clamp(0.8rem, 1.6vw, 0.95rem);
     color: var(--text-light);
     transition: color 300ms ease;
 }
 
 .logoutButton {
-    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2.5vw, 20px);
+    padding: clamp(7px, 1.3vw, 10px) clamp(12px, 2vw, 16px);
     background: var(--secondary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    gap: 5px;
+    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
     transition: all 300ms ease;
     white-space: nowrap;
 }
@@ -159,10 +157,8 @@ body {
 }
 
 .logoutButton .material-icons {
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(15px, 1.8vw, 18px);
 }
-
-/* ==================== CONTROL PANEL ==================== */
 
 .controlPanel {
     display: flex;
@@ -199,18 +195,19 @@ body {
 
 .inputIcon {
     position: absolute;
-    left: 12px;
+    left: 10px;
     color: var(--text-secondary);
-    font-size: clamp(18px, 2.5vw, 22px);
+    font-size: clamp(16px, 2.2vw, 20px);
     pointer-events: none;
+    z-index: 1;
 }
 
 .controlPanel input[type="text"] {
     width: 100%;
-    padding: clamp(10px, 1.8vw, 14px) clamp(10px, 1.8vw, 14px) clamp(10px, 1.8vw, 14px) clamp(40px, 5vw, 48px);
+    padding: clamp(9px, 1.6vw, 12px) clamp(9px, 1.6vw, 12px) clamp(9px, 1.6vw, 12px) clamp(38px, 4.5vw, 44px);
     border: 2px solid var(--border-color);
-    border-radius: 10px;
-    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    border-radius: 8px;
+    font-size: clamp(0.75rem, 1.4vw, 0.875rem);
     background: var(--input-bg);
     color: var(--text-primary);
     transition: all 300ms ease;
@@ -218,8 +215,8 @@ body {
 
 .controlPanel input[type="text"]:focus {
     outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(184, 227, 233, 0.2);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(79, 124, 130, 0.15);
 }
 
 .controlPanel input[type="text"]::placeholder {
@@ -230,16 +227,16 @@ body {
 .createButton,
 .exportButton,
 .importButton {
-    padding: clamp(10px, 1.8vw, 14px) clamp(15px, 2.5vw, 22px);
+    padding: clamp(9px, 1.6vw, 12px) clamp(12px, 2.2vw, 18px);
     background: var(--secondary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    gap: 5px;
+    font-size: clamp(0.75rem, 1.4vw, 0.875rem);
     transition: all 300ms ease;
     white-space: nowrap;
 }
@@ -255,10 +252,8 @@ body {
 .createButton .material-icons,
 .exportButton .material-icons,
 .importButton .material-icons {
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(16px, 1.8vw, 20px);
 }
-
-/* ==================== THEME SELECTOR ==================== */
 
 .themeSelector {
     display: flex;
@@ -268,50 +263,50 @@ body {
 }
 
 .themeButton {
-    width: clamp(35px, 5vw, 45px);
-    height: clamp(35px, 5vw, 45px);
+    width: clamp(32px, 4.5vw, 40px);
+    height: clamp(32px, 4.5vw, 40px);
     border-radius: 50%;
     border: 2px solid var(--border-color);
-    background: var(--secondary-color);
-    color: var(--text-light);
+    background: var(--card-bg);
+    color: var(--secondary-color);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 300ms ease;
+    box-shadow: 0 2px 8px var(--shadow);
 }
 
 .themeButton:hover {
-    background: var(--hover-color);
+    background: var(--secondary-color);
+    color: var(--text-light);
     transform: scale(1.15);
     box-shadow: 0 4px 12px var(--shadow);
 }
 
 .themeButton.active {
-    background: var(--accent-color);
-    color: var(--primary-color);
-    border-color: var(--accent-color);
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
     transform: scale(1.1);
 }
 
 .themeButton .material-icons {
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(16px, 2.2vw, 22px);
 }
-
-/* ==================== MESSAGE SECTION ==================== */
 
 .message {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-size: clamp(0.75rem, 1.3vw, 0.875rem);
     color: var(--text-primary);
     background: var(--background);
     transition: all 300ms ease;
     text-align: center;
-    min-height: 48px;
+    min-height: 42px;
     flex-shrink: 0;
 }
 
@@ -325,8 +320,6 @@ body {
     opacity: 0;
 }
 
-/* ==================== FOLDER CONTAINER ==================== */
-
 .folderContainer {
     flex: 1;
     width: 100%;
@@ -339,44 +332,52 @@ body {
     align-content: start;
 }
 
-/* ==================== FOLDER CARDS ==================== */
-
 .folder {
     width: 100%;
     max-width: 400px;
-    height: clamp(380px, 50vh, 450px);
+    height: auto;
+    min-height: clamp(400px, 55vh, 500px);
     margin: 0 auto;
     position: relative;
-    border-radius: 20px;
+    border-radius: 16px;
     background-color: var(--card-bg);
     display: flex;
     flex-direction: column;
     transition: all 300ms ease;
     box-shadow: 0 4px 20px var(--shadow);
     overflow: hidden;
+    cursor: move;
+    cursor: grab;
+}
+
+.folder:active {
+    cursor: grabbing;
 }
 
 .folder:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px var(--shadow);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow);
 }
 
 .folder.dragging {
-    opacity: 0.6;
-    transform: rotate(5deg);
+    opacity: 0.5;
+    transform: rotate(3deg) scale(1.02);
+    cursor: grabbing;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .folderName {
     width: 100%;
-    height: clamp(50px, 8vh, 65px);
+    height: clamp(45px, 6.5vh, 55px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 clamp(15px, 2.5vw, 25px);
-    color: var(--text-light);
-    border-radius: 20px 20px 0 0;
+    padding: 0 clamp(12px, 2.2vw, 20px);
+    color: var(--accent-color);
+    border-radius: 16px 16px 0 0;
     background-color: var(--card-header);
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    border-bottom: 2px solid var(--border-color);
+    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
     transition: all 300ms ease;
     flex-shrink: 0;
 }
@@ -398,7 +399,7 @@ body {
 .deleteFolder {
     background: none;
     border: none;
-    color: var(--text-light);
+    color: var(--secondary-color);
     cursor: pointer;
     padding: 6px;
     border-radius: 8px;
@@ -409,12 +410,13 @@ body {
 }
 
 .deleteFolder:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(79, 124, 130, 0.15);
+    color: var(--primary-color);
     transform: scale(1.1);
 }
 
 .deleteFolder .material-icons {
-    font-size: clamp(20px, 2.5vw, 24px);
+    font-size: clamp(18px, 2.2vw, 22px);
 }
 
 .links {
@@ -424,52 +426,57 @@ body {
 
 .list {
     flex: 1;
-    padding: clamp(12px, 2vw, 18px);
+    padding: clamp(10px, 1.8vw, 15px);
     overflow-y: auto;
     overflow-x: hidden;
     list-style-position: inside;
-    min-height: 0;
+    min-height: 150px;
+    background: var(--card-bg);
 }
 
 .anchors {
-    padding: clamp(6px, 1.2vw, 10px) 8px;
-    margin-bottom: 6px;
+    padding: clamp(7px, 1.1vw, 10px) 9px;
+    margin-bottom: 7px;
     border-radius: 8px;
     transition: all 200ms ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
 }
 
 .anchors:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--accent-color);
+    border-color: var(--secondary-color);
+    transform: translateX(5px);
 }
 
 .anchors a {
-    color: var(--text-light);
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 200ms ease;
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-size: clamp(0.8rem, 1.4vw, 0.9rem);
     min-width: 0;
+    font-weight: 600;
 }
 
 .anchors a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
+    color: var(--secondary-color);
 }
 
 .deleteLink {
     background: none;
     border: none;
-    color: var(--text-light);
+    color: var(--secondary-color);
     cursor: pointer;
     padding: 4px;
-    opacity: 0;
+    opacity: 0.7;
     transition: all 200ms ease;
     display: flex;
     align-items: center;
@@ -482,21 +489,24 @@ body {
 }
 
 .deleteLink:hover {
-    color: #ff4444;
-    background: rgba(255, 68, 68, 0.2);
+    color: #D32F2F;
+    background: rgba(211, 47, 47, 0.1);
+    transform: scale(1.2);
 }
 
 .deleteLink .material-icons {
-    font-size: clamp(18px, 2vw, 20px);
+    font-size: clamp(16px, 1.8vw, 18px);
 }
 
 .task {
     width: 100%;
-    padding: clamp(10px, 2vw, 15px);
-    gap: clamp(8px, 1.5vw, 12px);
+    padding: clamp(10px, 1.8vw, 14px);
+    gap: clamp(9px, 1.6vw, 12px);
     display: none;
     flex-direction: column;
     flex-shrink: 0;
+    background: var(--card-bg);
+    border-top: 2px solid var(--border-color);
 }
 
 .task.show {
@@ -505,64 +515,71 @@ body {
 
 .task input {
     width: 100%;
-    height: clamp(40px, 6vh, 48px);
+    height: clamp(38px, 5.5vh, 46px);
     padding: 0 clamp(10px, 1.8vw, 14px);
-    border-radius: 10px;
+    border-radius: 8px;
     border: 2px solid var(--border-color);
     background: var(--input-bg);
     color: var(--text-primary);
-    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    font-size: clamp(0.8rem, 1.4vw, 0.875rem);
     transition: all 300ms ease;
+    font-weight: 600;
 }
 
 .task input:focus {
     outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(184, 227, 233, 0.2);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(79, 124, 130, 0.15);
+    background: var(--card-bg);
 }
 
 .task input::placeholder {
     color: var(--text-secondary);
     opacity: 0.7;
+    font-weight: 500;
 }
 
 .folderBottom {
-    gap: clamp(8px, 1.5vw, 12px);
+    gap: clamp(9px, 1.6vw, 12px);
     width: 100%;
-    height: clamp(50px, 8vh, 65px);
-    color: var(--text-light);
-    border-radius: 0 0 20px 20px;
+    min-height: clamp(50px, 7.5vh, 65px);
+    color: var(--text-primary);
+    border-radius: 0 0 16px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(8px, 1.5vw, 12px);
+    padding: clamp(9px, 1.6vw, 12px);
     flex-shrink: 0;
+    background: var(--card-bg);
 }
 
 .addTask,
 .saveTask,
 .cancel {
     height: 100%;
-    background: var(--card-header);
-    color: var(--text-light);
+    min-height: clamp(38px, 4.5vh, 44px);
+    background: var(--primary-color);
+    color: var(--accent-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
     transition: all 300ms ease;
 }
 
 .addTask {
-    width: 100%;
-    background: transparent;
+    width: 45%;
 }
 
 .addTask:hover {
-    background: rgba(11, 46, 51, 0.3);
+    background: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .saveTask,
@@ -576,9 +593,22 @@ body {
     display: flex;
 }
 
-.saveTask:hover,
-.cancel:hover {
+.saveTask {
+    background: var(--primary-color);
+}
+
+.cancel {
+    background: var(--text-secondary);
+}
+
+.saveTask:hover {
     background: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.cancel:hover {
+    background: #666666;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow);
 }
@@ -586,14 +616,13 @@ body {
 .addTask .material-icons,
 .saveTask .material-icons,
 .cancel .material-icons {
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(16px, 1.8vw, 20px);
 }
 
 .themes {
     display: flex !important;
 }
 
-/* ==================== DESKTOP (Large Screens) ==================== */
 @media (min-width: 1441px) {
     .folderContainer {
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -606,7 +635,6 @@ body {
     }
 }
 
-/* ==================== LAPTOP (Standard Desktop) ==================== */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .folderContainer {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -614,7 +642,6 @@ body {
     }
 }
 
-/* ==================== TABLET (Landscape & Portrait) ==================== */
 @media (min-width: 768px) and (max-width: 1024px) {
     .header {
         padding: 20px;
@@ -646,7 +673,7 @@ body {
     }
 
     .folder {
-        height: 420px;
+        min-height: 420px;
     }
 
     .themeSelector {
@@ -654,10 +681,22 @@ body {
     }
 }
 
-/* ==================== MOBILE (Large Phones) ==================== */
 @media (min-width: 481px) and (max-width: 767px) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
     .header {
         padding: 18px;
+        flex-shrink: 0;
     }
 
     .headerTop {
@@ -696,31 +735,53 @@ body {
         flex: 1;
     }
 
+    .message {
+        flex-shrink: 0;
+    }
+
     .folderContainer {
+        flex: 1;
         grid-template-columns: 1fr;
-        padding: 20px;
+        padding: 20px 15px;
         gap: 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        height: 0;
+        min-height: 0;
+        padding-bottom: 30px;
     }
 
     .folder {
         max-width: 100%;
-        height: 400px;
+        min-height: 450px;
     }
 
     .themeSelector {
         margin-top: 12px;
     }
+
+    .deleteLink {
+        opacity: 1;
+    }
 }
 
-/* ==================== MOBILE (Small Phones) ==================== */
 @media (max-width: 480px) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
     body {
-        min-height: 100vh;
-        height: auto;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .header {
         padding: 15px;
+        flex-shrink: 0;
     }
 
     .headerTop {
@@ -773,22 +834,54 @@ body {
         font-size: 0.75rem;
     }
 
+    .message {
+        flex-shrink: 0;
+    }
+
     .folderContainer {
+        flex: 1;
         grid-template-columns: 1fr;
-        padding: 15px;
+        padding: 15px 12px;
         gap: 20px;
-        height: auto;
-        min-height: calc(100vh - 350px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 30px;
+        height: 0;
+        min-height: 0;
     }
 
     .folder {
         max-width: 100%;
-        height: auto;
-        min-height: 380px;
+        min-height: 450px;
     }
 
     .list {
-        min-height: 200px;
+        min-height: 180px;
+    }
+
+    .task {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .task input {
+        height: 44px;
+        font-size: 0.85rem;
+    }
+
+    .folderBottom {
+        min-height: 60px;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .addTask,
+    .saveTask,
+    .cancel {
+        min-height: 44px;
+        font-size: 0.85rem;
+        padding: 0 12px;
     }
 
     .themeSelector {
@@ -801,29 +894,75 @@ body {
     }
 }
 
-/* ==================== LANDSCAPE MODE (Mobile/Tablet) ==================== */
-@media (max-height: 600px) and (orientation: landscape) {
-    .header {
-        padding: 12px 20px;
-    }
-
+@media (max-width: 360px) {
     .folderContainer {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 15px 20px;
+        padding: 15px 10px;
+        padding-bottom: 25px;
     }
 
     .folder {
-        height: 350px;
+        min-height: 420px;
+    }
+
+    .task input {
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+    .folderBottom {
+        min-height: 55px;
+    }
+
+    .addTask,
+    .saveTask,
+    .cancel {
+        min-height: 40px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        padding: 12px 20px;
+        flex-shrink: 0;
     }
 
     .message {
         min-height: 35px;
         padding: 8px 15px;
+        flex-shrink: 0;
+    }
+
+    .folderContainer {
+        flex: 1;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px 20px;
+        padding-bottom: 25px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        height: 0;
+        min-height: 0;
+    }
+
+    .folder {
+        min-height: 380px;
     }
 }
 
-/* ==================== PRINT STYLES ==================== */
 @media print {
 
     .header,
@@ -848,7 +987,6 @@ body {
     }
 }
 
-/* ==================== HIGH CONTRAST MODE ==================== */
 @media (prefers-contrast: high) {
     .folder {
         border: 2px solid var(--primary-color);
@@ -860,7 +998,6 @@ body {
     }
 }
 
-/* ==================== REDUCED MOTION ==================== */
 @media (prefers-reduced-motion: reduce) {
 
     *,
