@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.URL || 'mongodb+srv://User:User@links.vjupjjr.mongodb.net/?retryWrites=true&w=majority&appName=Links')
+mongoose.connect(process.env.URL || 'mongodb+srv://User:User@mongoose.xczces4.mongodb.net/Nexus-Loom')
     .then(() => console.log('Database connected'))
     .catch(err => console.error('Database connection error:', err));
 
@@ -293,3 +293,4 @@ app.listen(Port, () => {
         console.log(`Server started listening`);
 
 });
+
